@@ -5,9 +5,8 @@
 
 <div align="center"> 
 
-![Last commit](https://img.shields.io/github/last-commit/l3tici4g/dotfiles-dev?&style=for-the-badge&color=b4637a&logo=git&logoColor=faf4ed&labelColor=232136)
-![Repository Size](https://img.shields.io/github/repo-size/l3tici4g/dotfiles-dev?color=907aa9&label=SIZE&logo=protondrive&style=for-the-badge&logoColor=faf4ed&labelColor=232136)
-![OS Fedora Linux](https://img.shields.io/badge/OS-Fedora-458588?style=for-the-badge&logo=linux&logoColor=white)
+![Last commit](https://img.shields.io/github/last-commit/l3tici4g/dotfiles-dev?&style=for-the-badge&color=286983&logo=git&logoColor=908caa&labelColor=232136)
+![OS Fedora Linux](https://img.shields.io/badge/OS-Fedora-9ccfd8?style=for-the-badge&logo=linux&logoColor=908caa&labelColor=232136)
 
 </div>
 
