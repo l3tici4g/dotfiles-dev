@@ -1,0 +1,59 @@
+#: SHELL
+[terminal.shell]
+program = "/bin/bash"
+
+#: KEYBOARD & MOUSE 
+[[keyboard.bindings]]
+mods = "Super|Shift"
+action = "SpawnNewInstance"
+key = "Return"
+
+[mouse]
+hide_when_typing = true
+
+#: WINDOW
+[window]
+#startup_mode = "Fullscreen"
+startup_mode = "Windowed"
+title = "Terminal"
+dynamic_title = true
+padding = { x = 20, y = 20 }
+class = { instance = "Alacritty", general = "Alacritty" }
+#decorations = "None"
+decorations_theme_variant = "Light"
+#opacity = 0.87
+opacity = 1
+
+#: CURSOR
+[cursor]
+style = { shape = "Block", blinking = "On" }
+vi_mode_style = { shape = "Block", blinking = "Off" }
+blink_interval = 650
+unfocused_hollow = true
+
+##: SELECTION
+[selection]
+save_to_clipboard = true
+
+##: SCROLLING / SCROLLBACK
+[scrolling]
+history = 10000
+multiplier = 3
+
+#: FONTS
+[font]
+size = 14
+normal = { family = "Fira Code Nerd Font", style = "Regular" }
+italic = { family = "Fira Code Nerd Font", style = "Italic" }
+bold = { family = "Fira Code Nerd Font", style = "Bold" }
+bold_italic = { family = "Fira Code Nerd Font", style = "Bold Italic" }
+
+#: ENV
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+#: OTHER SETTINGS
+[general]
+live_config_reload = true
+import = ["~/.config/alacritty/gruvbox-dark.toml"]

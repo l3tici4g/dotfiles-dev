@@ -1,0 +1,250 @@
+# **-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-**
+#|-----------------------------------------|
+#               SWAY SETTINGS
+#            Modify by: l3tici4g
+#              Version: 0.0.1
+#|-----------------------------------------|
+# **-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-**
+
+#: | Variables
+
+#: Set Keybinds
+    set $mod Mod4
+    set $left h
+    set $down j
+    set $up k
+    set $right l
+
+    #: Understanding Mods
+    #: ref.: https://wiki.alpinelinux.org/wiki/Sway_customization_guidea
+    #: Mod1 =    Alt
+    #: Mod2 =    Num_Lock (not universally mapped)
+    #: Mod3 =    Not set (It could be programmed, as an XKB modifier key)
+    #: Mod4 =    Super/Windows/Logo Key
+    #: Mod5 =    AltGr
+    #: Lock =    Caps_Lock
+    #: Control = Ctrl
+    #: Shift =   Shift
+
+#: Set Environment
+    set $keyboard "br"
+    set $model "abnt2"
+    set $options "terminate:ctrl_alt_bksp"
+    set $menu wofi --show drun
+    set $bar waybar
+    #set $lockscreen swaylock -i --config $HOME/.config/swaylock/config
+    set $gamma gammastep -l 5.49:35.11 -t 4100:4100
+    set $bright xrandr --output eDP-1 --brightness 60
+
+#: Set Workspaces
+    set $ws0 1:Terminal
+    set $ws1 2:Code
+    set $ws2 3:Search
+    set $ws3 4:Study
+    set $ws4 5:Message
+    set $ws5 6:Music
+    set $ws6 number 7
+    set $ws7 number 8
+    set $ws8 number 9
+    set $ws9 number 10
+
+#: Set applications
+    set $terminal kitty
+
+#: | Input configuration
+
+#: Keyboard Layout
+    input type:keyboard {
+        xkb_layout $keyboard
+        xkb_model $model
+        xkb_options $options
+        xkb_capslock disabled
+        xkb_numlock enabled
+    }
+
+#: Touchpad
+    input "type:touchpad" {
+        dwt enabled
+        tap enabled
+        drag enabled
+        drag_lock disabled
+        natural_scroll disabled
+        middle_emulation enabled
+    }
+
+#: | Output configuration
+
+#: Wallpaper
+    output * bg /home/leticia/.local/share/backgrounds/rocket.png fill
+
+#: Status Bar
+    bar {
+        swaybar_command $bar
+    }
+
+#: Display Monitor
+
+    #: Default Gamma (Nightlight/Redshift)
+    exec_always $gamma
+
+    #: Default Brightness
+    exec_always $bright
+
+#: | Idle configuration
+
+#: Lockscreen
+    #exec swayidle -w \
+        #timeout 300 'swaylock -f -c 282828' \
+        #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+        #before-sleep 'swaylock -f -c 282828'
+
+#: | Key bindings
+
+#: Basics
+
+    #: Start a terminal
+    bindsym $mod+Alt+t exec $terminal
+
+    #: Start your launcher
+    bindsym $mod+m exec $menu
+
+    #: Kill focused window
+    bindsym $mod+Shift+q kill
+
+    #: Reload the sway / configuration file
+    bindsym $mod+Shift+r reload
+
+    #: Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+#: Moving windows around
+
+    #: Move your focus around (vim mode)
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    #: Move your focus around (classic mode)
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    #: Move the focused window for different layout (vim mode)
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+    #: Move the focused window for different layout (classic mode)
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+#: Workspaces
+
+    #: Switch to workspace
+    bindsym $mod+1 workspace $ws0
+    bindsym $mod+2 workspace $ws1
+    bindsym $mod+3 workspace $ws2
+    bindsym $mod+4 workspace $ws3
+    bindsym $mod+5 workspace $ws4
+    bindsym $mod+6 workspace $ws5
+    bindsym $mod+7 workspace $ws6
+    bindsym $mod+8 workspace $ws7
+    bindsym $mod+9 workspace $ws8
+    bindsym $mod+0 workspace $ws9
+
+    #: Move to next/previous workspace with active container
+    bindsym $mod+Tab workspace next
+    bindsym $mod+Alt+Tab workspace prev
+
+    #: Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace $ws0
+    bindsym $mod+Shift+2 move container to workspace $ws1
+    bindsym $mod+Shift+3 move container to workspace $ws2
+    bindsym $mod+Shift+4 move container to workspace $ws3
+    bindsym $mod+Shift+5 move container to workspace $ws4
+    bindsym $mod+Shift+6 move container to workspace $ws5
+    bindsym $mod+Shift+7 move container to workspace $ws6
+    bindsym $mod+Shift+8 move container to workspace $ws7
+    bindsym $mod+Shift+9 move container to workspace $ws8
+    bindsym $mod+Shift+0 move container to workspace $ws9
+
+#: Layout Window
+
+    #: Horizontal & Vertical Splits
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    #: Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    #: Make the current focus fullscreen
+    bindsym $mod+Alt+f fullscreen
+
+    #: Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    #: Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+#: Resizing containers
+    mode "resize" {
+        #: Vim Mode
+        bindsym $left resize shrink width 10px
+        bindsym $down resize grow height 10px
+        bindsym $up resize shrink height 10px
+        bindsym $right resize grow width 10px
+
+        #: Arrow Keys
+        bindsym Left resize shrink width 10px
+        bindsym Down resize grow height 10px
+        bindsym Up resize shrink height 10px
+        bindsym Right resize grow width 10px
+
+        #: Return to default mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    bindsym $mod+ALt+r mode "resize"
+
+#: Utilities:
+
+    #: Special keys to adjust volume via PulseAudio
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
+    #: Special keys to adjust brightness via brightnessctl
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+    #: Special key to take a screenshot with grim
+    # TODO: !!1 Fix the keybind Print (doesn't work)
+    # TODO: !!2 Implement "Screenshot saved in media/images/screenshots/" message
+    bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'grimScreenshot-%Y-%m-%d-%H%M%S.png')
+
+#: | Impor config
+    include $HOME/.config/sway/config.d/retro-theme.conf

@@ -1,0 +1,31 @@
+#: | PROMPT CONFIG
+
+#: Status
+last_status () {
+    local EXIT_CODE=$?
+
+    if [[ $EXIT_CODE -eq 0 ]]; then
+        #: Sucess
+        printf -- "${FG_BOLD_GREEN}(✔)${END_COLOR}"
+    else
+        #: Error
+        printf -- "${FG_BOLD_RED}󰦸%s${END_COLOR}" "$EXIT_CODE"
+    fi
+}
+#: DEFAULT PROMPT
+#: Link00 = https://discourse.ubuntu.com/t/bash-command-history-problems-with-long-commands/58172
+#: Link01 = https://superuser.com/questions/1368166/bash-prompt-messed-up-on-arrow-up
+
+PS1='${debian_chroot:+($debian_chroot)}\[$FG_BOLD_YELLOW\][\s]\[$END_COLOR\] \[$(last_status)\]\[$FG_BOLD_GREEN\] \u@\H: \[$FG_BOLD_WHITE\]\w \[$FG_BOLD_BLUE\]\[$(__git_ps1 " %s")\]\n\[$FG_WHITE\]\$ ❱ \[$END_COLOR\]'
+#PS1='${debian_chroot:+($debian_chroot)}$FG_BOLD_WHITE[\s]$END_COLOR $(last_status)$FG_BOLD_GREEN \u@\H: $FG_BOLD_YELLOW\w $FG_BOLD_BLUE$(__git_ps1 " %s")\n$FG_WHITE\$ ❱ $END_COLOR'
+#PS1='${debian_chroot:+($debian_chroot)}$FG_BOLD_WHITE[\s]$END_COLOR $(last_status) $FG_BOLD_YELLOW\w $FG_BOLD_BLUE$(__git_ps1 " %s ")$FG_WHITE❱ $END_COLOR'
+
+#: Fixing Line Wrapping Issues
+# stty -ixon
+# stty rows 30 columns 120
+# set horizontal-scroll-mode off
+# set wrap-mode on
+# export COLUMNS=120
+# export LINES=30
+# set editing-mode vim
+# set show-all-if-ambiguos on

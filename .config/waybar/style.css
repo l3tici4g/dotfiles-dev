@@ -1,0 +1,138 @@
+/**-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-**
+|------------------------------------------|
+           STYLE BAR FOR WAYBAR
+            Made by: l3tici4g
+             Version: 0.0.1
+|-----------------------------------------|
+**-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-**/
+
+/* #: | Global Style */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrains Mono Nerd Font Propo";
+    font-size: x-small;
+    font-weight: bolder;
+    min-height: 16px;
+}
+
+/* #: | Waybar Window */
+window#waybar {
+    color: #ebdbb2;
+    background-color: #282828;
+}
+
+/* #: | ToolTip Style */
+tooltip {
+    border-top: 4px solid #32302f;
+    border-right: 4px solid #1d2021;
+    border-bottom: 4px solid #1d2021;
+    border-left: 4px solid #32302f;
+    background: #282828;
+    text-shadow: none;
+}
+
+tooltip label {
+    padding: 8px;
+    color: #ebdbb2;
+    text-shadow: none;
+}
+
+/* #: | Modules Styles */
+
+/* #: Global for First Bar */
+.module:not(#workspaces) {
+    /* height: 8px; */
+    margin: 8px 4px;
+    padding: 0 4px;
+    background: #282828;
+    border-top: 4px solid #32302f;
+    border-right: 4px solid #1d2021;
+    border-bottom: 4px solid #1d2021;
+    border-left: 4px solid #32302f;
+    box-shadow: 2px 2px #171717;
+}
+
+.module:not(#workspaces):hover {
+    color: #504945;
+    border-top: 4px solid #1d2021;
+    border-right: 4px solid #32302f;
+    border-bottom: 4px solid #32302f;
+    border-left: 4px solid #1d2021;
+    box-shadow: -1px -1px #32302f;
+}
+
+/* #: Margin for the first widget in left module */
+.modules-left > widget:nth-child(1) > .module:not(#workspaces),
+.modules-left > widget:nth-child(1) .module:not(#workspaces):nth-child(1) {
+    margin-left: 8px;
+}
+
+/* #: Margin for the last widget in right module */
+.modules-right > widget:nth-last-child(1) > .module:not(#workspaces),
+.modules-right
+    > widget:nth-last-child(1)
+    .module:not(#workspaces):nth-last-child(1) {
+    margin-right: 8px;
+}
+
+/* #: Launcher Button */
+label.module#custom-launcher {
+    padding: 4px 12px;
+    color: #458588;
+}
+
+label.module#custom-launcher:hover {
+    color: #076678;
+}
+
+/* #: Workspaces Buttons */
+#workspaces button {
+    margin: 8px 4px;
+    padding: 0 8px;
+    background: #282828;
+    color: #ebdbb2;
+    border-top: 4px solid #32302f;
+    border-right: 4px solid #1d2021;
+    border-bottom: 4px solid #1d2021;
+    border-left: 4px solid #32302f;
+    box-shadow: 2px 2px #171717;
+}
+
+#workspaces button:hover,
+#workspaces button.focused {
+    background: #282828;
+    color: #504945;
+    border-top: 4px solid #1d2021;
+    border-right: 4px solid #32302f;
+    border-bottom: 4px solid #32302f;
+    border-left: 4px solid #1d2021;
+    box-shadow: -1px -1px #32302f;
+    text-shadow: none;
+    transition: none;
+}
+
+/* #: Battery & Temperature Information */
+#battery.warning,
+#temperature.warning {
+    color: #fabd2f;
+}
+
+#battery.critical,
+#temperature.critical {
+    color: #fe8019;
+}
+
+#battery.charging {
+    color: #98971a;
+    border-top: 4px solid #1d2021;
+    border-right: 4px solid #32302f;
+    border-bottom: 4px solid #32302f;
+    border-left: 4px solid #1d2021;
+    box-shadow: -1px -1px #32302f;
+}
+
+/* #: Networking */
+#network.ethernet {
+    background-color: #458588;
+}

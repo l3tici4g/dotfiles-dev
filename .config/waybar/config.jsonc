@@ -1,0 +1,129 @@
+// #: Waybar Config
+// -*- mode: jsonc -*-
+[
+  {
+    "name": "mainBar",
+
+    // #: Layout
+    "layer": "top",
+    "position": "top",
+    "height": 16,
+    "spacing": 1,
+
+    // #: Modules position
+    "modules-left": ["group/session", "custom/launcher", "clock"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": [
+      "tray",
+      // "bluetooth",
+      "network",
+      "pulseaudio",
+      "backlight",
+      // "custom/gamma",
+      // "custom/keyboard-layout",
+      // "memory",
+      // "cpu",
+      // "custom/cpu",
+      "temperature",
+      "battery",
+      "power-profiles-daemon",
+    ],
+
+    // #: Import Modules Settings
+    "include": "./modules.jsonc",
+
+    // #: Reloading the CSS Style if a modification is detected
+    "reload_style_on_change": true,
+  },
+]
+
+// {
+//     // #: Layout
+//     "layer": "top",    // Waybar at top layer
+//     "position": "top", // Waybar position (top|bottom|left|right)
+//     "height": 40,      // Waybar height (to be removed for auto height)
+//     "width": "100%",   // Waybar width
+//     "spacing": 16,     // Gaps between modules (4px)
+
+//     // #: Modules settings
+//     "mpd": {
+//         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}%  ",
+//         "format-disconnected": "Disconnected ",
+//         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+//         "unknown-tag": "N/A",
+//         "interval": 5,
+//         "consume-icons": {
+//             "on": " "
+//         },
+//         "random-icons": {
+//             "off": "<span color=\"#f53c3c\"></span> ",
+//             "on": " "
+//         },
+//         "repeat-icons": {
+//             "on": " "
+//         },
+//         "single-icons": {
+//             "on": "1 "
+//         },
+//         "state-icons": {
+//             "paused": " ",
+//             "playing": " "
+//         },
+//         "tooltip-format": "MPD (connected)",
+//         "tooltip-format-disconnected": "MPD (disconnected)"
+//     },
+//     "idle_inhibitor": {
+//         "format": "{icon}",
+//         "format-icons": {
+//             "activated": " ",
+//             "deactivated": " "
+//         }
+//     },
+//     "tray": {
+//         "icon-size": 21,
+//         "spacing": 20,
+//         // "icons": {
+//         //   "blueman": "bluetooth",
+//         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+//         // }
+//     },
+//     "backlight": {
+//         // "device": "acpi_video1",
+//         "format": "{percent}% {icon}",
+//         "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+//     },
+//     "battery#bat2": {
+//         "bat": "BAT2"
+//     },
+//     "pulseaudio": {
+//         // "scroll-step": 1, // %, can be a float
+//         "format": "VOLUME: {volume}% {icon} {format_source}",
+//         "format-bluetooth": "{volume}% {icon} {format_source}",
+//         "format-bluetooth-muted": "󰅶 {icon} {format_source}",
+//         "format-muted": "󰅶 {format_source}",
+//         "format-source": "{volume}%  ",
+//         "format-source-muted": " ",
+//         "format-icons": {
+//             "headphone": " ",
+//             "hands-free": "󰂑 ",
+//             "headset": "󰂑 ",
+//             "phone": " ",
+//             "portable": " ",
+//             "car": " ",
+//             "default": ["  ", "  ", "  "]
+//         },
+//         "on-click": "pavucontrol"
+//     },
+//     "custom/media": {
+//         "format": "{icon} {text}",
+//         "return-type": "json",
+//         "max-length": 40,
+//         "format-icons": {
+//             "spotify": " ",
+//             "default": "🎜 "
+//         },
+//         "escape": true,
+//         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+//         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+//     }
+// }

@@ -1,0 +1,26 @@
+#: Mode
+normal_window = false
+mode = drun
+line_wrap = word_char
+
+#: Search
+#sort_order = alphabetical
+matching = contains
+#prompt = Search...
+hide_scroll = true
+lines = 6
+dynamic_lines = false
+
+#: Geometry
+location = top_left
+y = 0
+width = 45%
+height = 55%
+
+#: Images
+allow_markup=true
+allow_images=true
+image_size = 24
+
+#: Others
+term = kitty

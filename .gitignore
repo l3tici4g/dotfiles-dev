@@ -1,0 +1,9 @@
+.directory
+.config/fzf/
+.config/rofi/
+.config/swaylock/
+.config/user-dirs.conf
+.local/share/plasma/
+apps/
+archive/
+root-system/

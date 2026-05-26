@@ -1,0 +1,31 @@
+#! /bin/bash
+
+#: | PLUGINS
+
+#: Git
+. $HOME/.shell/git-prompt.sh
+
+#: nvm
+export NVM_DIR="$HOME/.nvm"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                     #: This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"   #: This loads nvm bash_completion
+
+#: fzf
+#: Set up 'fzf' key bindings and fuzzy completion (0.48.0 or later)
+eval "$(fzf --bash)"
+
+#: Rosé Pine Dawn theme for 'fzf'
+#. $HOME/.config/fzf/rose-pine-dawn.sh
+#. $XDG_CONFIG_HOME/fzf/rose-pine-dawn.sh
+
+#: Catppuccin Mocha theme for 'fzf'
+#. $HOME/.config/fzf/catppuccin-fzf-mocha.sh
+#. $XDG_CONFIG_HOME/fzf/catppuccin-fzf-mocha.sh
+
+#: Gruvbox theme for 'fzf'
+#. $HOME/.config/fzf/gruvbox.sh
+#. $XDG_CONFIG_HOME/gruvbox.sh
+
+#: Fast syntax for Terminal Colors
+. $HOME/.shell/terminal_colors.sh

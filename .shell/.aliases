@@ -1,0 +1,106 @@
+#! /bin/bash
+
+#: | ALIESES
+
+#: | Navigation
+alias cd1='cd ..'
+alias cd2='cd ../..'
+alias cd3='cd ../../..'
+alias cd4='cd ../../../..'
+alias cd5='cd ../../../../..'
+
+#: Main directories
+alias home='clear && cd $HOME && ls -FlAh --color=auto'
+alias dots='cd $DOTFILES && ls -FlAh --color=auto'
+alias dwl='cd $HOME/downloads && ls -FlAh --color=auto'
+alias med='cd $MEDIA_DIR && ls -FlAh --color=auto'
+alias mdl='cd $HOME/models && ls -FlAh --color=auto'
+
+#: Media directories
+alias dct='cd $MEDIA_DIR/documents && ls -AF --color=auto'
+alias img='cd $MEDIA_DIR/images && ls -AF --color=auto'
+alias msc='cd $MEDIA_DIR/musics && ls -AF --color=auto'
+alias vid='cd $MEDIA_DIR/videos && ls -AF --color=auto'
+
+#: | Files & Directories (Create, Read, Update and Delete)
+alias ls='ls -F --color=auto'
+alias ll='ls -Flh --color=auto'
+alias la='ls -FA --color=auto'
+alias lah='ls -FlAh --color=auto'
+
+alias rm='rm -r -i -v'
+alias cp='cp -r -i -v'
+alias mv='mv -i -v'
+alias mkdir='mkdir -p -v'
+alias rmdir='rmdir -p -v'
+alias rmd='rm -r -i -v -f'
+
+alias egrep='grep -E'
+
+#: | Update, Upgrade and Autoremove 
+
+#: Using 'dnf'
+#alias upd='sudo dnf update --refresh -y'
+alias upd='sudo dnf upgrade --refresh -y'
+alias add='sudo dnf install'
+alias del='sudo dnf remove'
+alias autr='sudo dnf autoremove -y'
+alias srch='dnf search --all'
+
+#: Using 'flatpak' (review)
+#: Link=https://docs.flatpak.org/en/latest/flatpak-command-reference.html
+alias updflat='flatpak update'
+alias addflat='flatpak install'
+alias delflat='flatpak uninstall --delete-data'
+alias lstflat='flatpak list'
+
+#: | System information
+#alias sysDtl='inxi -F --filter'
+alias sysInfo='fastfetch'
+alias audioServer='pactl info | grep "Nome do servidor"'
+alias lsbc='lsblk | bat -l conf -p' 
+
+#: Exit
+alias quit='exit'
+alias sair='exit'
+alias tchau='exit'
+
+#: BASH
+alias brc='$EDITOR $DOTFILES/.bashrc'
+#: Change shell
+alias toBash='sudo chsh -s /usr/bin/bash'
+
+#: Other SHELLs (needs modification)
+#: ZSH
+#alias zrc='$EDITOR $DOTFILES/.zshrc'
+#: Change shell:
+#alias toZsh='sudo chsh -s /usr/bin/zsh'
+#: FISH (+)
+
+#: Reload the shell
+alias reload="clear && exec $SHELL"
+
+#: | Terminal Aplications
+alias which='which -a'
+alias spok='cowsay -f dog "\"Não me diga que o céu é o limite, se há pegadas na lua.\" -- Jennette McCurdy"'
+
+#: Some 'fzf' commands
+alias fzf='fzf -e'
+alias fzf_preview='fzf -e --preview "bat --theme=GitHub --color=always {}"'
+alias fzf_code='code $(fzf -e --preview "bat --theme=GitHub --color=always {}")'
+alias fzf_vim='vim $(fzf -e --preview "bat --theme=GitHub --color=always {}")'
+
+#: Commands for Kitty Terminal
+alias icat='kitten icat'
+alias themes='kitten themes'
+
+#: | Edit Settings
+alias aliases='$EDITOR $SHELLSCRPT/.aliases'
+alias plugins='$EDITOR $SHELLSCRPT/.plugins'
+alias alcrtty_config='$EDITOR $DOTFILES/.config/alacritty/alacritty.toml'
+alias kitty_config='$EDITOR $DOTFILES/.config/kitty/kitty.conf'
+alias fstf_config='$EDITOR $DOTFILES/.config/fastfetch/config.jsonc'
+
+#: | IMPORT
+. $HOME/.shell/alias-workstation.sh
+

@@ -1,0 +1,286 @@
+// #: Waybar Modules
+// -*- mode: jsonc -*-
+{
+  // #: Groups Modules
+  "group/session": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 0,
+      "children-class": "not-power",
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "custom/poweroff",
+      "custom/reboot",
+      "custom/suspend",
+      // "custom/hibernate",  !!2
+      // "custom/lock",       !!1
+      "custom/quit",
+    ],
+  },
+
+  // "group/sysmonitor": {
+  //   "orientation": "horizontal",
+  //   "drawer": {
+  //     "transition-duration": 0,
+  //     // "children-class": "not-power",
+  //     "transition-left-to-right": false,
+  //   },
+  //   "modules": [
+  //     "custom/cpu",
+  //     "custom/memory",
+  //     "custom/gpu",
+  //     "custom/storage",
+  //   ],
+  // },
+
+  // #: Main Modules
+  "backlight": {
+    "format": "bri: {percent}%",
+    "format-icons": ["", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠", ""],
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}% {icon}",
+    "reverse-scrolling": true,
+  },
+
+  "battery": {
+    "interval": 1,
+    "format": "bat: {capacity}%",
+    "format-alt": "bat: {power} W",
+    "format-charging": "cha: {capacity}%",
+    "format-full": "bat: full",
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "events": {
+      // "on-discharging-warning": "notify-send -u normal 'Battery is Low.'",
+      // "on-discharging-critical": "notify-send -u critical 'Battery is Very Low!'",
+      // "on-charging-100": "notify-send -u normal 'Battery Full!'",
+      "on-discharging-warning": "notify-send -u normal 'Bateria está baixa.' 'Se quiser, recarregue seu computador.'",
+      "on-discharging-critical": "notify-send -u critical 'Bateria está muito baixa!' 'Recarregue seu computador imediatamente!'",
+      "on-charging-100": "notify-send -u normal 'Recarga Completa!' 'Parabéns! Seu computador está disposto para mais um ciclo de uso.'",
+    },
+  },
+
+  "bluetooth": {
+    "format": "blu: {}",
+    "tooltip": true,
+  },
+
+  "clock": {
+    "timezone": "America/Fortaleza",
+    "interval": 1,
+    "format": " {:%H:%M}",
+    "format-alt": " {:%H:%M |  %d/%m/%Y}",
+    "tooltip-format": "<big>Calendar {:%Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ebdbb2'><b>{}</b></span>",
+        "days": "<span color='#665c54'><b>{}</b></span>",
+        "weeks": "<span color='#83a598'><b>{}</b></span>",
+        "weekdays": "<span color='#98971a'><b>{}</b></span>",
+        "today": "<span color='#282828' background='#ebdbb2'><b><u>{}</u></b></span>",
+      },
+    },
+  },
+
+  "cpu": {
+    "format": "cpu: {usage}% ",
+    "tooltip": true,
+    "tooltip-format": "CPU Usage",
+  },
+
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": " ",
+      "unlocked": " ",
+    },
+  },
+
+  "memory": {
+    "format": "mem: {}% 󰘚",
+    "tooltip": true,
+    "tooltip-format": "Memory Usage",
+  },
+
+  "network": {
+    "interface": "wlp1*", // (Optional) To force the use of this interface
+    "format-wifi": "{icon} wifi",
+    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    // "format-linked": "{ifname} (No IP) 󰊗 ",
+    "format-disconnected": "󰤭",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\nConnnected through {ifname}",
+  },
+
+  "power-profiles-daemon": {
+    "format": " {icon} ",
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+    "icon-size": 32,
+    "tooltip": true,
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+  },
+
+  "pulseaudio": {
+    "format": "vol: {volume}%",
+    "format-muted": "vol: {icon}",
+    "format-icons": "󰖁",
+    "icon-size": 32,
+    // "tooltip-format": "Volume {volume}%\n{}",
+    "reverse-scrolling": true,
+    // "on-click": "",
+    "ignored-sinks": ["Easy Effects Sink"],
+  },
+
+  "temperature": {
+    "format": "tem: {temperatureC}°C",
+    "format-alt": " {temperatureC}°C",
+    "format-critical": "tem:  {temperatureC}°C",
+    // "fromat-icons": ["", "", "", "", ""],
+    "tooltip": true,
+    "tooltip-format": "Temperature: {temperatureC}°C",
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "warning-threshold": 45,
+    "critical-threshold": 60,
+  },
+
+  "tray": {
+    "format": "{icon}",
+    "icon-size": 16,
+    "spacing": 20,
+    "icons": {
+      "blueman": "",
+    },
+  },
+
+  // #: Sway Modules
+  // TODO: See this modules and how to set !!3
+  //"sway/mode": {
+  //  "format": "<span style=\"italic\">{}</span>"
+  //},
+
+  "sway/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "icon-size": 28,
+    "format-icons": {
+      "1:Terminal": "",
+      "2:Code": "",
+      "3:Search": "",
+      "4:Study": "󰗚",
+      "5:Message": "",
+      "6:Music": "",
+      "default": "",
+    },
+    "persistent-workspaces": {
+      "1:Terminal": [],
+      "2:Code": [],
+      "3:Search": [],
+      "4:Study": [],
+      "5:Message": [],
+    },
+  },
+
+  //"sway/scratchpad": {
+  //  "format": "{icon} {count}",
+  //  "show-empty": false,
+  //  "format-icons": ["", ""],
+  //  "tooltip": true,
+  //  "tooltip-format": "{app}: {title}"
+  //},
+
+  // #: Custom Modules
+  // TODO: Set notifications button (default or custom) !!1
+  "custom/launcher": {
+    "format": "{icon} Fedora",
+    "icon-size": 32,
+    "format-icons": "",
+    "tooltip-format": "Hello World!\nPretty hat, huh?",
+    "on-click": "wofi --show drun",
+  },
+
+  "custom/quit": {
+    "format": " 󰿅 ",
+    "tooltip-format": "Quit Session",
+    "on-click": "swaymsg exit",
+  },
+
+  // TODO: !!1 See how to set
+  "custom/lock": {
+    "format": "󰍁",
+    "tooltip-format": "LockScreen",
+    "on-click": "swaylock",
+  },
+  // TODO: !!2
+  // "custom/hibernate": {
+  //     "format": "󰒲",
+  //     "tooltip-format": "Hibernate",
+  //     "on-click": "systemctl hibernate"
+  // },
+
+  "custom/suspend": {
+    "format": " 󰏤 ",
+    "tooltip-format": "Suspend",
+    "on-click": "systemctl suspend",
+  },
+
+  "custom/reboot": {
+    "format": "  ",
+    "tooltip-format": "Reboot",
+    "on-click": "systemctl reboot",
+  },
+
+  "custom/poweroff": {
+    "format": " ⏻ ",
+    "tooltip-format": "Power Off",
+    "on-click": "systemctl poweroff",
+  },
+
+  "custom/keyboard-layout": {
+    "format": "key: {}",
+    "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+    "interval": 1,
+    "signal": 1,
+    "tooltip": false,
+  },
+
+  // TODO: Consertar o botão para desativar o gamma !!3
+  "custom/gamma": {
+    "format": "gam: {icon}",
+    "tooltip-format": "Gamma",
+    // "return-type": "json",
+    // "on-click": "gammastep -l 5.49:35.11 -t 4100:4100",
+    "format-icons": [""],
+    "on-click-right": "bash ~/.config/waybar/scripts/gammastep/gamma_inc.sh",
+    "on-click": "bash ~/.config/waybar/scripts/gammastep/gamma_dec.sh",
+    "on-click-middle": "bash ~/.config/waybar/scripts/gammastep/gamma_toggle.sh",
+  },
+
+  "custom/cpu": {
+    "exec": "$HOME/.config/waybar/scripts/waybar-cpu.py",
+    "return-type": "json",
+    "interval": 2,
+    "tooltip": true,
+  },
+
+  // TODO: Set later !!3
+  // "custom/musicplayer": {
+  //   //
+  // }
+}
+// #: (Save later) <span color='#98971a'>[ </span>
