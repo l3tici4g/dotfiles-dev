@@ -50,6 +50,8 @@
 
 #: Set applications
     set $terminal kitty
+    set $files dolphin
+    set $browser zen
 
 #: | Input configuration
 
@@ -80,6 +82,11 @@
 #: Status Bar
     bar {
         swaybar_command $bar
+    }
+
+#: Windows Rules
+    for_window {
+        #
     }
 
 #: Display Monitor
