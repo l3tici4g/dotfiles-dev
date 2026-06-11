@@ -7,6 +7,7 @@
 
 ![Last commit](https://img.shields.io/github/last-commit/l3tici4g/dotfiles-dev?&style=for-the-badge&color=286983&logo=git&logoColor=908caa&labelColor=232136)
 ![OS Fedora Linux](https://img.shields.io/badge/OS-Fedora-9ccfd8?style=for-the-badge&logo=linux&logoColor=908caa&labelColor=232136)
+![Sway Window Manager](https://img.shields.io/badge/WM-Sway-f6c177?style=for-the-badge&logo=wayland&logoColor=908caa&labelColor=232136)
 
 </div>
 
@@ -16,6 +17,7 @@ Um setup no Fedora 43 utilizando o Sway como gerenciador de janelas para o Desen
 
 # Implementações Futuras
 
+- [ ] Aplicar regras específicas para as janelas das aplicações
 - [ ] Ajustar a tela de bloqueio para quando suspender
 - [ ] Adicionar e configurar o botão de Bluetooth no Waybar
 - [ ] Mapear as dependências do dotfiles

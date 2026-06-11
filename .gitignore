@@ -4,6 +4,7 @@
 .config/swaylock/
 .config/user-dirs.conf
 .local/share/plasma/
+.local/share/icons/
 apps/
 archive/
 root-system/
