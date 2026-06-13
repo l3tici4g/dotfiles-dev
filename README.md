@@ -21,5 +21,6 @@ Um setup no Fedora 43 utilizando o Sway como gerenciador de janelas para o Desen
 - [ ] Ajustar a tela de bloqueio para quando suspender
 - [ ] Adicionar e configurar o botão de Bluetooth no Waybar
 - [ ] Mapear as dependências do dotfiles
+- [ ] Mapear a lista de conteúdos do diretório
 - [ ] Criar um script shell de instalação dos programas
 - [ ] Criar um script shell de limpeza do sistema
