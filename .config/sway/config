@@ -2,7 +2,6 @@
 #|-----------------------------------------|
 #               SWAY SETTINGS
 #            Modify by: l3tici4g
-#              Version: 0.0.2
 #|-----------------------------------------|
 # **-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-**
 
@@ -61,7 +60,7 @@
         xkb_model $model
         xkb_options $options
         xkb_capslock disabled
-        xkb_numlock enabled
+        xkb_numlock disabled
     }
 
 #: Touchpad
@@ -69,15 +68,12 @@
         dwt enabled
         tap enabled
         drag enabled
-        drag_lock disabled
+        drag_lock enabled
         natural_scroll disabled
         middle_emulation enabled
     }
 
 #: | Output configuration
-
-#: Wallpaper
-    output * bg /home/leticia/.local/share/backgrounds/rocket.png fill
 
 #: Status Bar
     bar {
@@ -119,41 +115,20 @@
     #: Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-#
-# Scratchpad:
-#
+
+#: Scratchpad
+
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
-    # Move the currently focused window to the scratchpad
+    #: Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 
-#: Resizing containers
-    mode "resize" {
-        #: Vim Mode
-        bindsym $left resize shrink width 10px
-        bindsym $down resize grow height 10px
-        bindsym $up resize shrink height 10px
-        bindsym $right resize grow width 10px
-
-        #: Arrow Keys
-        bindsym Left resize shrink width 10px
-        bindsym Down resize grow height 10px
-        bindsym Up resize shrink height 10px
-        bindsym Right resize grow width 10px
-
-        #: Return to default mode
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-    }
-
-    bindsym $mod+ALt+r mode "resize"
-
-#: Utilities:
+#: Utilities
 
     #: Special keys to adjust volume via PulseAudio
     bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
@@ -171,6 +146,8 @@
     bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'grimScreenshot-%Y-%m-%d-%H%M%S.png')
 
 #: | Impor config
-    include $HOME/.config/sway/retro-theme.conf
-    include $HOME/.config/sway/workspaces.conf
-    include $HOME/.config/sway/windows.conf
+
+include $HOME/.config/sway/retro-theme.conf
+include $HOME/.config/sway/workspaces.conf
+include $HOME/.config/sway/windows.conf
+include $HOME/.config/sway/modes.conf
