@@ -2,7 +2,7 @@
 #|-----------------------------------------|
 #               SWAY SETTINGS
 #            Modify by: l3tici4g
-#              Version: 0.0.1
+#              Version: 0.0.2
 #|-----------------------------------------|
 # **-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-**
 
@@ -36,22 +36,22 @@
     set $gamma gammastep -l 5.49:35.11 -t 4100:4100
     set $bright xrandr --output eDP-1 --brightness 60
 
-#: Set Workspaces
-    set $ws0 1:Terminal
-    set $ws1 2:Code
-    set $ws2 3:Search
-    set $ws3 4:Study
-    set $ws4 5:Message
-    set $ws5 6:Music
-    set $ws6 number 7
-    set $ws7 number 8
-    set $ws8 number 9
-    set $ws9 number 10
-
 #: Set applications
     set $terminal kitty
+    set $o_term alacritty
     set $files dolphin
-    set $browser zen
+    set $browser firefox
+    set $o_browser zen-browser
+    set $editor zed
+    set $o_editor vim
+
+    set $id_term "kitty"
+    set $id_oterm "Alacritty"
+    set $id_browser "org.mozilla.firefox"
+    set $id_obrowser "app.zen_browser.zen"
+    set $id_editor0 "dev.zed.Zed"
+    set $id_editor1 "code"
+    set $id_editor2 "Eclipse"
 
 #: | Input configuration
 
@@ -82,11 +82,6 @@
 #: Status Bar
     bar {
         swaybar_command $bar
-    }
-
-#: Windows Rules
-    for_window {
-        #
     }
 
 #: Display Monitor
@@ -124,84 +119,6 @@
     #: Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-#: Moving windows around
-
-    #: Move your focus around (vim mode)
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-
-    #: Move your focus around (classic mode)
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
-
-    #: Move the focused window for different layout (vim mode)
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-
-    #: Move the focused window for different layout (classic mode)
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-
-#: Workspaces
-
-    #: Switch to workspace
-    bindsym $mod+1 workspace $ws0
-    bindsym $mod+2 workspace $ws1
-    bindsym $mod+3 workspace $ws2
-    bindsym $mod+4 workspace $ws3
-    bindsym $mod+5 workspace $ws4
-    bindsym $mod+6 workspace $ws5
-    bindsym $mod+7 workspace $ws6
-    bindsym $mod+8 workspace $ws7
-    bindsym $mod+9 workspace $ws8
-    bindsym $mod+0 workspace $ws9
-
-    #: Move to next/previous workspace with active container
-    bindsym $mod+Tab workspace next
-    bindsym $mod+Alt+Tab workspace prev
-
-    #: Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $ws0
-    bindsym $mod+Shift+2 move container to workspace $ws1
-    bindsym $mod+Shift+3 move container to workspace $ws2
-    bindsym $mod+Shift+4 move container to workspace $ws3
-    bindsym $mod+Shift+5 move container to workspace $ws4
-    bindsym $mod+Shift+6 move container to workspace $ws5
-    bindsym $mod+Shift+7 move container to workspace $ws6
-    bindsym $mod+Shift+8 move container to workspace $ws7
-    bindsym $mod+Shift+9 move container to workspace $ws8
-    bindsym $mod+Shift+0 move container to workspace $ws9
-
-#: Layout Window
-
-    #: Horizontal & Vertical Splits
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
-
-    #: Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
-    #: Make the current focus fullscreen
-    bindsym $mod+Alt+f fullscreen
-
-    #: Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
-    #: Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
-
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -254,4 +171,6 @@
     bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'grimScreenshot-%Y-%m-%d-%H%M%S.png')
 
 #: | Impor config
-    include $HOME/.config/sway/config.d/retro-theme.conf
+    include $HOME/.config/sway/retro-theme.conf
+    include $HOME/.config/sway/workspaces.conf
+    include $HOME/.config/sway/windows.conf
