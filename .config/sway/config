@@ -31,6 +31,7 @@
     set $options "terminate:ctrl_alt_bksp"
     set $menu wofi --show drun
     set $bar waybar
+    set $notify_center swaync
     #set $lockscreen swaylock -i --config $HOME/.config/swaylock/config
     set $gamma gammastep -l 5.49:35.11 -t 4100:4100
     set $bright xrandr --output eDP-1 --brightness 60
@@ -51,6 +52,7 @@
     set $id_editor0 "dev.zed.Zed"
     set $id_editor1 "code"
     set $id_editor2 "Eclipse"
+    set $id_editor3 "beekeeper-studio"
 
 #: | Input configuration
 
@@ -80,6 +82,9 @@
         swaybar_command $bar
     }
 
+#: Notification Manager
+exec $notify_center
+
 #: Display Monitor
 
     #: Default Gamma (Nightlight/Redshift)
@@ -105,6 +110,12 @@
 
     #: Start your launcher
     bindsym $mod+m exec $menu
+
+    #: Open Menu Notification
+    bindsym $mod+Shift+n exec $notify_center
+
+    #: Open browser
+    #bindsym $mod+Alt+b $browser
 
     #: Kill focused window
     bindsym $mod+Shift+q kill
@@ -151,3 +162,4 @@ include $HOME/.config/sway/retro-theme.conf
 include $HOME/.config/sway/workspaces.conf
 include $HOME/.config/sway/windows.conf
 include $HOME/.config/sway/modes.conf
+include /etc/sway/config.d/*
