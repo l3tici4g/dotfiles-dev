@@ -1,3 +1,11 @@
+# ██████   █████  ███████ ██   ██ ██████   ██████ 
+# ██   ██ ██   ██ ██      ██   ██ ██   ██ ██      
+# ██████  ███████ ███████ ███████ ██████  ██      
+# ██   ██ ██   ██      ██ ██   ██ ██   ██ ██      
+# ██████  ██   ██ ███████ ██   ██ ██   ██  ██████ 
+                                                
+
+#: | A welcome menssage!
 fastfetch
 
 #: | PATHS
@@ -8,8 +16,11 @@ fastfetch
 #: 'dotfiles' directory path
 DOTFILES=$HOME/dotfiles
 
-#: 'media' directory path (for future)
+#: 'media' directory path
 MEDIA_DIR=$HOME/media
+
+#: 'projects' directory path (for programming)
+PROGRAMMING=$HOME/projects
 
 #: Shell Scripts path
 SHELLSCRPT=$HOME/.shell
@@ -66,15 +77,12 @@ export PATH
 #unset rc
 
 #: | ALIESES
-if [ -f $HOME/.shell/.aliases ]; then
-    . $HOME/.shell/.aliases
+if [ -f $SHELLSCRPT/.aliases ]; then
+    . $SHELLSCRPT/.aliases
 fi
 
 #: | PLUGINS
-if [ -f $HOME/.shell/.plugins ]; then
-    . $HOME/.shell/.plugins
+if [ -f $SHELLSCRPT/.plugins ]; then
+    . $SHELLSCRPT/.plugins
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

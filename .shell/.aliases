@@ -1,6 +1,10 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
-#: | ALIESES
+
+#  ▄▄▄  ▄▄    ▄▄  ▄▄▄   ▄▄▄▄ ▄▄▄▄▄  ▄▄▄▄ 
+# ██▀██ ██    ██ ██▀██ ███▄▄ ██▄▄  ███▄▄ 
+# ██▀██ ██▄▄▄ ██ ██▀██ ▄▄██▀ ██▄▄▄ ▄▄██▀                                      
+
 
 #: | Navigation
 alias cd1='cd ..'
@@ -15,6 +19,7 @@ alias dots='cd $DOTFILES && ls -FlAh --color=auto'
 alias dwl='cd $HOME/downloads && ls -FlAh --color=auto'
 alias med='cd $MEDIA_DIR && ls -FlAh --color=auto'
 alias mdl='cd $HOME/models && ls -FlAh --color=auto'
+alias proj='cd $PROGRAMMING && ls -FlAh --color=auto'
 
 #: Media directories
 alias dct='cd $MEDIA_DIR/documents && ls -AF --color=auto'
@@ -37,10 +42,10 @@ alias rmd='rm -r -i -v -f'
 
 alias egrep='grep -E'
 
-#: | Update, Upgrade and Autoremove 
+#: | Update, Upgrade and Autoremove
 
 #: Using 'dnf'
-#alias upd='sudo dnf update --refresh -y'
+#alias updi='sudo dnf update --refresh -y'
 alias upd='sudo dnf upgrade --refresh -y'
 alias add='sudo dnf install'
 alias del='sudo dnf remove'
@@ -54,11 +59,14 @@ alias addflat='flatpak install'
 alias delflat='flatpak uninstall --delete-data'
 alias lstflat='flatpak list'
 
+#: Upgrade system for complete
+alias updsys='flatpak update && sudo dnf upgrade --refresh -y'
+
 #: | System information
 #alias sysDtl='inxi -F --filter'
 alias sysInfo='fastfetch'
 alias audioServer='pactl info | grep "Nome do servidor"'
-alias lsbc='lsblk | bat -l conf -p' 
+alias lsbc='lsblk | bat -l conf -p'
 
 #: Exit
 alias quit='exit'
@@ -103,4 +111,3 @@ alias fstf_config='$EDITOR $DOTFILES/.config/fastfetch/config.jsonc'
 
 #: | IMPORT
 . $HOME/.shell/alias-workstation.sh
-

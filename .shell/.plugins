@@ -1,15 +1,21 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
-#: | PLUGINS
+
+# ▄▄▄▄  ▄▄    ▄▄ ▄▄  ▄▄▄▄ ▄▄ ▄▄  ▄▄  ▄▄▄▄
+# ██▄█▀ ██    ██ ██ ██ ▄▄ ██ ███▄██ ███▄▄
+# ██    ██▄▄▄ ▀███▀ ▀███▀ ██ ██ ▀██ ▄▄██▀
+
 
 #: Git
 . $HOME/.shell/git-prompt.sh
 
 #: nvm
 export NVM_DIR="$HOME/.nvm"
-
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                     #: This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"   #: This loads nvm bash_completion
+
+#: opencode
+export PATH="/home/leticia/.opencode/bin:$PATH"
 
 #: fzf
 #: Set up 'fzf' key bindings and fuzzy completion (0.48.0 or later)

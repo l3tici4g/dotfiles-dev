@@ -34,3 +34,21 @@ cleanSystem() {
     printf "--- [5/5] Limpeza da lixeira e de arquivos temporários\n"
     # TODO: inserir estrutura de if-else para detectar se a lixeira está vazia ou não.
 }
+
+#: Autostart para aplicações do sistema
+autostart() {
+    #: Daemon de notificação
+    pkill -x swaync
+    #swaync &
+
+    #: Daemon da barra
+    pkill -x waybar
+    #waybar -c $XDG_CONFIG_HOME/waybar/config
+}
+
+#autostart
+
+bluetoothService() {
+    
+}
+
